@@ -1,3 +1,4 @@
+import AuthProvider from "./AuthProvider";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import Nav from "./Nav";
@@ -15,11 +16,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${roboto.className}`}>
-      <body>
-        <Nav />
-        {children}
-      </body>
-    </html>
+    <AuthProvider>
+      <html lang="en" className={`${roboto.className}`}>
+        <body>
+          <Nav />
+          {children}
+        </body>
+      </html>
+    </AuthProvider>
   );
 }
